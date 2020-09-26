@@ -1,6 +1,4 @@
-execute as @a store success score @s NS.usedItem run clear @a #name_station:ns-clear{NS:{}}
-execute as @a if score @s NS.usedItem matches 1.. run playsound minecraft:block.chain.break master @a ~ ~ ~ 1 0.7 1
-scoreboard players reset @a NS.usedItem
+execute as @a if score @s NS.usedItem matches 2 run playsound minecraft:block.chain.break master @a ~ ~ ~ 1 0.7 1
 
 execute if score @s NS-s2-switch matches 0 run data modify block ~ ~-1 ~ Items[{Slot:5b}].tag.display.Name set value {}
 execute if score @s NS-s2-switch matches 1 run data modify block ~ ~-1 ~ Items[{Slot:5b}].tag.display.Lore set value {}
