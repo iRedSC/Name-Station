@@ -2,7 +2,7 @@
 A datapack that adds a little station that lets you rename items using Json formatting.
 
 # How to Use
-First you need to obtain a `Text Editor`, which you can do by finding it in an end city or by giving it to yourself with
+First you need to obtain a `Text Editor`, which you can do by finding it in an end city, simple dungeon, stronghold, or by giving it to yourself with
 ```mcfunction
 function name_station:give
 ```
