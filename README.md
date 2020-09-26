@@ -6,4 +6,5 @@ First you need to obtain a `Text Editor`, which you can do by finding it in an e
 ```mcfunction
 function name_station:give
 ```
+![text-editor]
 (https://media.discordapp.net/attachments/759159698921750558/759544926622711838/unknown.png)
