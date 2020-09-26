@@ -1,5 +1,6 @@
-clear @a #name_station:ns-clear{NS:{}}
-playsound minecraft:item.trident.riptide_1 master @a ~ ~ ~ 1 0 1
+execute as @a store success score @s NS.usedItem run clear @a #name_station:ns-clear{NS:{}}
+execute as @a if score @s NS.usedItem matches 1.. run playsound minecraft:item.trident.riptide_1 master @a ~ ~ ~ 1 0 1
+scoreboard players reset @a NS.usedItem
 
 execute if data block ~ ~-1 ~ Items[{Slot:4b}] run summon item ~ ~ ~ {Tags:["NSDrop"],Item:{id:"minecraft:dirt",Count:1b}}
 execute if data block ~ ~-1 ~ Items[{Slot:4b}] run data modify entity @e[type=item,tag=NSDrop,limit=1,sort=nearest,distance=..1] Item set from block ~ ~-1 ~ Items[{Slot:4b}]
