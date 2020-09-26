@@ -18,3 +18,4 @@ execute unless data block ~ ~-1 ~ Items[{Slot:8b}].tag.NS run data modify block 
 
 execute align x align z run tp @s ~0.5 ~ ~0.5
 data merge entity @s {CustomNameVisible:1b,Age:0,Health:99999999,PickupDelay:10,CustomName:'{"text":"Name Station","color":"gold","bold":true,"italic":false}',Item:{}}
+data merge block ~ ~-1 ~ {CustomName:'{"text":"Name Station","color":"#C79200","bold":true}'}
