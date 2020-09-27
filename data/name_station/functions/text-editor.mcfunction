@@ -2,7 +2,9 @@
 # Will run the functions when the selet item has been removed
 execute unless data block ~ ~-1 ~ Items[{Slot:1b}].tag.NS run function name_station:slot-2
 execute unless data block ~ ~-1 ~ Items[{Slot:2b}].tag.NS run function name_station:slot-3
-execute unless data block ~ ~-1 ~ Items[{Slot:4b}].tag.NS run function name_station:slot-5
+execute unless data block ~ ~-1 ~ Items[{Slot:4b}].tag.NS run function name_station:slot-5-q
+execute if score @s NS-s2-switch matches 0 unless data block ~ ~-1 ~ Items[{Slot:0b}].tag.NS run function name_station:slot-1_0
+execute if score @s NS-s2-switch matches 1 unless data block ~ ~-1 ~ Items[{Slot:0b}].tag.NS run function name_station:slot-1_1
 
 # This runs a playsound when an item is placed into the correct slots
 execute if data block ~ ~-1 ~ Items[{Slot:3b}] unless data block ~ ~-1 ~ Items[{Slot:3b}].tag.NS run playsound minecraft:block.end_portal_frame.fill master @a[scores={NS.usedItem=3}] ~ ~ ~ 1 0 1

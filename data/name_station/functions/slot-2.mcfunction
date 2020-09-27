@@ -1,5 +1,4 @@
 
-
 scoreboard players add @s NS-s2-switch 1
 execute if score @s NS-s2-switch matches 2.. run scoreboard players set @s NS-s2-switch 0
 
@@ -16,3 +15,8 @@ execute if score @s NS-s2-switch matches 1 run data modify block ~ ~-1 ~ Items a
 
 execute if score @s NS-s2-switch matches 0 run data modify block ~ ~-1 ~ Items append value {Slot:4b,id:"minecraft:feather",Count:1b,tag:{display:{Name:'{"text":"Set Name","color":"aqua","italic":false}'},NS:{Function:"Set.Name"}}}
 execute if score @s NS-s2-switch matches 1 run data modify block ~ ~-1 ~ Items append value {Slot:4b,id:"minecraft:feather",Count:1b,tag:{display:{Name:'{"text":"Set Lore","color":"aqua","italic":false}'},NS:{Function:"Set.Lore"}}}
+
+scoreboard players remove @s NS-s1-switch 1
+execute if score @s NS-s1-switch matches ..-1 run scoreboard players set @s NS-s1-switch 2
+execute if score @s NS-s2-switch matches 0 run function name_station:slot-1_0
+execute if score @s NS-s2-switch matches 1 run function name_station:slot-1_1

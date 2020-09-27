@@ -6,7 +6,10 @@
      "minecraft:iron_ingot",
      "minecraft:gold_ingot",
      "minecraft:tnt_minecart",
-     "minecraft:feather"
+     "minecraft:feather",
+     "minecraft:diamond",
+     "minecraft:nether_star",
+     "minecraft:emerald"
 
 
    ]
