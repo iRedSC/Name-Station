@@ -1,5 +1,5 @@
 
-# Will run the functions when the selet item has been removed
+# Will run the functions when the select item has been removed
 execute unless data block ~ ~-1 ~ Items[{Slot:1b}].tag.NS run function name_station:slot-2
 execute unless data block ~ ~-1 ~ Items[{Slot:2b}].tag.NS run function name_station:slot-3
 execute unless data block ~ ~-1 ~ Items[{Slot:4b}].tag.NS run function name_station:slot-5-q
@@ -17,7 +17,15 @@ execute unless data block ~ ~-1 ~ Items[{Slot:6b}].tag.NS run data modify block 
 execute unless data block ~ ~-1 ~ Items[{Slot:7b}].tag.NS run data modify block ~ ~-1 ~ Items prepend value {Slot:7b,id:"minecraft:black_stained_glass_pane",Count:1b,tag:{display:{Name:'{"text":" ","italic":false}'},NS:{Function:"Null"}}}
 execute unless data block ~ ~-1 ~ Items[{Slot:8b}].tag.NS run data modify block ~ ~-1 ~ Items prepend value {Slot:8b,id:"minecraft:black_stained_glass_pane",Count:1b,tag:{display:{Name:'{"text":" ","italic":false}'},NS:{Function:"Null"}}}
 
-
+# Snaps the Text Editor item to the middle of the block
 execute align x align z run tp @s ~0.5 ~ ~0.5
+# Give the Text Editor item the "Name Station" name and makes sure it can't despawn or be picked up
 data merge entity @s {CustomNameVisible:1b,Age:0,Health:99999999,PickupDelay:10,CustomName:'{"text":"Name Station","color":"gold","bold":true,"italic":false}',Item:{}}
+# Names the Dropper "Name Station"
 data merge block ~ ~-1 ~ {CustomName:'{"text":"Name Station","color":"#C79200","bold":true}'}
+
+# Breaks all blocks on top of the dispenser
+setblock ~ ~ ~ air destroy
+
+# Remove the lock on the dropper (if a player is using it it will be set back)
+data modify block ~ ~-1 ~ Lock set value ""

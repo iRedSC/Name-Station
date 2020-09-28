@@ -11,3 +11,10 @@ scoreboard objectives add NS-s2-switch dummy
 
 # This scoreboard is set to a value when a specific tagged item is clear from their inventory (items tagges as buttons/placeholders) [Used in `name_station:loop`]
 scoreboard objectives add NS.usedItem dummy
+
+# This if for detecting when the player opens the dispenser (Use for the lock) [used in `name_station:loop`]
+scoreboard objectives add NS.openDropper minecraft.custom:minecraft.inspect_dropper
+
+# These will detect when the player moves their camera (used for the lock) [used in `name_station:loop`]
+scoreboard objectives add NS.moveCam dummy
+scoreboard objectives add NS.moveCamDif dummy

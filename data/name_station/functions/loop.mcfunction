@@ -26,3 +26,21 @@ execute as @e[nbt={Item:{tag:{NameStation:1}}}] at @s if block ~ ~-1 ~ dropper r
 
 # This just kills all `{NS:{}}` tag items
 kill @e[type=item,nbt={Item:{tag:{NS:{}}}}]
+
+## Lock commands
+
+# This works by grabbing the players rotation, then running a test and grabbing it again to see if it changed
+
+# Stores the players y rotation to the moveCamDif scoreboard
+execute as @a store result score @s NS.moveCamDif run data get entity @s Rotation[0] 10000
+
+# resets the players openDropper score if the moved their camera
+execute as @a unless score @s NS.moveCam = @s NS.moveCamDif run scoreboard players reset @s NS.openDropper
+# resets the players openDropper score if they didn't move but tried to open it twice
+execute as @a[scores={NS.openDropper=2..}] run scoreboard players reset @s NS.openDropper
+
+# stores the players y rotation to the moveCam scoreboard
+execute as @a store result score @s NS.moveCam run data get entity @s Rotation[0] 10000
+
+# Runs the raycast if dropper has been opened
+execute as @a[scores={NS.openDropper=1..}] at @s anchored eyes run function name_station:movecam

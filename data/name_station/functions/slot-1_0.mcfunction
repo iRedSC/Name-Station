@@ -4,7 +4,7 @@
 
 # Add 1 to the switch scoreboard (to cycle through items)
 scoreboard players add @s NS-s1-switch 1
-# If the switch scoreboard is over 3
+# If the switch scoreboard is over 3, will reset it back to 0
 execute if score @s NS-s1-switch matches 3.. run scoreboard players set @s NS-s1-switch 0
 
 # This will play the click sound if the NS tagged item was removed from the slot (implying it was clicked)
@@ -13,9 +13,9 @@ execute unless data block ~ ~-1 ~ Items[{Slot:0b}].tag.NS as @a if score @s NS.u
 ## This ensures that if the player put an item in the button slot, its not just replaced and lost
 ## If (after the function was called by saying the item was removed) an item still remains, this means it would have been placed there and shouldn't be there
 # Summons an item on top of the dropper
-execute if data block ~ ~-1 ~ Items[{Slot:0b}] run summon item ~ ~ ~ {Tags:["NSDrop"],Item:{id:"minecraft:dirt",Count:1b}}
+execute if data block ~ ~-1 ~ Items[{Slot:0b}] unless data block ~ ~-1 ~ Items[{Slot:0b}].tag.NS run summon item ~ ~ ~ {Tags:["NSDrop"],Item:{id:"minecraft:dirt",Count:1b}}
 # Shoves the data of the misplaced item on the item entity (so now the item in the dropper can be replaced and not lost)
-execute if data block ~ ~-1 ~ Items[{Slot:0b}] run data modify entity @e[type=item,tag=NSDrop,limit=1,sort=nearest,distance=..1] Item set from block ~ ~-1 ~ Items[{Slot:0b}]
+execute if data block ~ ~-1 ~ Items[{Slot:0b}] unless data block ~ ~-1 ~ Items[{Slot:0b}].tag.NS run data modify entity @e[type=item,tag=NSDrop,limit=1,sort=nearest,distance=..1] Item set from block ~ ~-1 ~ Items[{Slot:0b}]
 
 ## Replacing the item (and cycling)
 # When the switch score has reached 3 or more and has been reset, this item will be placed in the slot
