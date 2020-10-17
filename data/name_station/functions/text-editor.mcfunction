@@ -1,3 +1,4 @@
+# By (i)RedSC
 
 # Will run the functions when the select item has been removed
 execute unless data block ~ ~-1 ~ Items[{Slot:1b}].tag.NS run function name_station:slot-2
